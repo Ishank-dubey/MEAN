@@ -1,0 +1,22 @@
+{
+  "name": "MEAN_SEED",
+  "version": "0.0.1",
+  "private": true,
+  "main": "app/server.js",
+  "scripts": {
+    "start": "nodemon app/server.js"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.2",
+    "express": "^4.8.8",
+    "jade": "*",
+    "jsonwebtoken": "^7.2.1",
+    "mongoose": "^4.7.6",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
