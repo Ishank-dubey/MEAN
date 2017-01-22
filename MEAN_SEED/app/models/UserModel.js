@@ -12,7 +12,7 @@ UserSchema.pre('save',function(next){
 		return next();
 	
 	bcrypt.hash(user.password,null,null, function(err, hash){
-		if(err)return next();
+		if(err)return next(); //
 		
 		user.password = hash;
 		next();
