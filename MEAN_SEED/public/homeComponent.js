@@ -5,10 +5,10 @@
 		controller: controllerFunction,
 		controllerAs: 'aCtrl'
 	});
-	controllerFunction.$inject = ['$scope'];
-	function controllerFunction($scope){
+	controllerFunction.$inject = ['$scope', '$http'];
+	function controllerFunction($scope, $http){
 		var self =  this;
-		self.prop = 'hi';
+		
 		self.tableDataArray = [{name:'q',username:'w',password:'a'}];
 		self.message = 'Message';
 		self.tableData = {};
@@ -16,6 +16,10 @@
 			self.tableDataArray.push(self.tableData);
 			self.tableData = {};
 		}
+		
+		$http.get('/admin/users').then(function(data){
+		    	console.log(data);
+		});
 		
 	}
 })();
