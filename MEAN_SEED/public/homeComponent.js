@@ -5,8 +5,8 @@
 		controller: controllerFunction,
 		controllerAs: 'aCtrl'
 	});
-	controllerFunction.$inject = ['$scope', '$http'];
-	function controllerFunction($scope, $http){
+	controllerFunction.$inject = ['$scope', '$http', 'serviceComponent'];
+	function controllerFunction($scope, $http, serviceComponent){
 		var self =  this;
 		
 		self.tableDataArray = [{name:'q',username:'w',password:'a'}];
@@ -17,9 +17,13 @@
 			self.tableData = {};
 		}
 		
-		$http.get('/admin/users').then(function(data){
-		    	console.log(data);
+		serviceComponent.all().then(function(data){
+			console.log(data);
 		});
+		
+		/*$http.get('/admin/users').then(function(data){
+		    	console.log(data);
+		});*/
 		
 	}
 })();
