@@ -84,6 +84,7 @@ app.use('/admin',adminRouter);
 app.use('/api',apiRouter);
 app.use('/login',loginRouter);
 app.get('*',function(request, response){
-	response.sendFile(path.join(__dirname+'/../public/index.html'));//
+	console.log('comesHere');
+	response.sendFile('index.html', { root: __dirname + "/../public" });//
 });
 app.listen(config.port);

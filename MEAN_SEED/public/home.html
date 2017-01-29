@@ -1,4 +1,4 @@
-<p>{{aCtrl.prop}}</p>
+<!-- <p>{{aCtrl.prop}}</p>
 <h2>This is my message:</h2>
 
 
@@ -16,12 +16,20 @@
 </tr>
 </thead>
 </table>
-<!-- form to add computer to the list -->
+form to add computer to the list
 <form class="form-inline" ng-submit="aCtrl.tableFunction()">
 
 <input type="text" class="form-control" placeholder="name" ng-model="aCtrl.tableData.name">
- <input type="text" class="form-control" placeholder="username" ng-model="aCtrl.tableData.username">
+<input type="text" class="form-control" placeholder="username" ng-model="aCtrl.tableData.username">
 <input type="number" class="form-control" placeholder="password" ng-model="aCtrl.tableData.password">
 
 <button type="submit" class="btn btn-success">Add</button>
- </form>
+ </form> -->
+ 
+<div class='container'> 
+<div class="jumbotron text-center">
+<h1>{{aCtrl.message }}</h1>
+<span><a ng-href="/login">Login</a></span>
+</div>
+
+</div>

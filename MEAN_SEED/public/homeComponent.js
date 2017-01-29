@@ -5,21 +5,9 @@
 		controller: controllerFunction,
 		controllerAs: 'aCtrl'
 	});
-	controllerFunction.$inject = ['$scope', '$http', 'serviceComponent'];
-	function controllerFunction($scope, $http, serviceComponent){
-		var self =  this;
-		
-		self.tableDataArray = [{name:'q',username:'w',password:'a'}];
-		self.message = 'Message';
-		self.tableData = {};
-		self.tableFunction = function(){
-			self.tableDataArray.push(self.tableData);
-			self.tableData = {};
-		}
-		
-		serviceComponent.all().then(function(data){
-			console.log(data);
-		});
+	controllerFunction.$inject = ['$scope', '$http', 'serviceComponent', 'authServiceFactory'];
+	function controllerFunction($scope, $http, serviceComponent, authServiceFactory){
+		this.message = 'Welcome to User CRM!';
 		
 		/*$http.get('/admin/users').then(function(data){
 		    	console.log(data);

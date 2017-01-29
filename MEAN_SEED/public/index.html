@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<base href="/">
+<base href="/"> 
 <meta charset="UTF-8">
 <title>MEAN</title>
-
+<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+<style>
+main{
+padding-top: 30px;
+}
+header .navbar {
+border-radius: 0px;
+}
+</style>
 </head>
-<body ng-app="MEAN">
-
-<ng-view></ng-view>
-
+<body ng-app="MEAN" ng-controller="mainCtrl as aCtrl">
+<header>
+ <div class='navbar navbar-inverse' ng-if='aCtrl.loggedIn'>
+ <div class='container'>
+ <div class='navbar-header'>
+ <a href='/' class='navbar-brand'><span class='glyphicon glyphicon-fire text-danger'></span>User CRM</a>
+ </div>
+ <ul class='nav navbar-nav'>
+ <li><a href='/users'><span class='glyphicon glyphicon-user'></span>Users</a></li>
+ </ul>
+ <ul class='nav navbar-nav navbar-right'>
+ <li ng-if='!aCtrl.loggedIn'><a href='/login'>Login</a>
+ </li>
+ <li ng-if="aCtrl.loggedIn" class="navbar-text">Hello {{ aCtrl.username }}!
+ </li>
+ <li ng-if="aCtrl.loggedIn"><a href="#" ng-click="aCtrl.doLogout()">Logout</a>
+ </li>
+ </ul>
+ </div>
+ </div>
+ </header>
+ 
+ <main class='container'>
+ <ng-view></ng-view>
+</main>
 
 
 <script src="./bower_components/angular/angular.min.js"></script>
@@ -20,8 +49,11 @@
 
 <script src="./home.js"></script>
 <script src="./homeComponent.js"></script>
+<script src="./views/loginModule.js"></script>
+<script src="./views/loginComponent.js"></script>  
 <script src="./Services/serviceModule.js"></script>
 <script src="./Services/serviceComponent.js"></script>
-
+<script src="./Services/authServiceModule.js"></script>
+<script src="./Services/authServiceComponent.js"></script> 
 </body>
 </html>
