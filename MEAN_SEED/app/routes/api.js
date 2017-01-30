@@ -28,9 +28,9 @@ module.exports = function(app, express){
 			username:request.body.username
 		}).select('name username password').exec(function(error, doc){
 		if(error){
-			response.send(error);
+			response.status(403).send(error);
 		}else if(!doc){
-			response.json({message:'User not found'});
+			response.status(403).json({message:'User not found'});
 		}else if(doc){
 			var validPassword = doc.comparePassword(request.body.password);
 			if(!validPassword){

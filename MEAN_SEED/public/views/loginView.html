@@ -26,4 +26,30 @@ form to add computer to the list
 <button type="submit" class="btn btn-success">Add</button>
  </form> -->
  
-<span>{{aCtrl.test}}</span>
+<div class="row col-sm-6 col-sm-offset-3">
+
+ <div class="jumbotron">
+ <h1>Login</h1>
+
+ <form ng-submit="aCtrl.doLogin()">
+
+ <!-- USERNAME INPUT -->
+ <div class="form-group">
+ <label>Username</label>
+ <input type="text" class="form-control" ng-model="aCtrl.loginData.username">
+ </div>
+ <!-- PASSWORD INPUT -->
+ <div class="form-group">
+ <label>Password</label>
+ <input type="password" class="form-control" ng-model="aCtrl.loginData.password">
+</div>
+
+ <!-- LOGIN BUTTON -->
+ <button type="submit" class="btn btn-block btn-primary">
+ <span>Login</span>
+ </button>
+
+ </form>
+ </div>
+
+ </div>

@@ -24,9 +24,6 @@ function authServiceFactory($http, $q, $window, $location){
 			return $http.post('/api/authenticate',{
 				username: aUsername,
 				password:aPassword
-			}).success(function(data){
-				authService.setToken(data.token);
-				return data;
 			});
 		};	
 

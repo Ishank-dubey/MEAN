@@ -8,7 +8,7 @@
 	function routeFunction($routeProvider, $locationProvider){
 		$routeProvider.when('/home',{
 			template : '<home></home>'
-		}).when('/sex',{
+		}).when('/login',{
 			template : '<login></login>'
 		}).otherwise({
 			redirectTo : '/home'

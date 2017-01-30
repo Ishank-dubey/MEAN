@@ -82,7 +82,7 @@ loginRouter.post('/',function(req,res){
 
 app.use('/admin',adminRouter);
 app.use('/api',apiRouter);
-app.use('/login',loginRouter);
+app.use('/loginApi',loginRouter);
 app.get('*',function(request, response){
 	console.log('comesHere');
 	response.sendFile('index.html', { root: __dirname + "/../public" });//

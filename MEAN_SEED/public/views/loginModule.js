@@ -1,4 +1,4 @@
 (function(){
 	'use strict';
-	angular.module('login',[]);
+	angular.module('login',['authServiceModule']);
 })();
