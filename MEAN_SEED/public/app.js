@@ -2,43 +2,47 @@
 	'use strict'
 	var app = angular.module('MEAN',['ngRoute', 'home', 'login','authServiceModule','serviceModule']);
 	
+	
 	app.controller('mainCtrl',mainFunction);
-	mainFunction.$inject = ['$rootScope','authServiceFactory','serviceComponent'];
-	function mainFunction($rootScope, authServiceFactory, serviceComponent){
+	mainFunction.$inject = ['$rootScope','authServiceFactory','serviceComponent','$http', '$location'];
+	function mainFunction($rootScope, authServiceFactory, serviceComponent, $http, $location){
 		var vm =  this;
-		vm.loggedIn = authServiceFactory.isLoggedIn();
+		vm.loggedIn = authServiceFactory.isLoggedIn();		
 		
 		
-		
-		
-		// check to see if a user is logged in on every request
 		 $rootScope.$on('$routeChangeStart', function() {
 		 vm.loggedIn = authServiceFactory.isLoggedIn();
 		
-		 // get user information on route change
-		authServiceFactory.getUser().then(function(data) {
-		 vm.user = data;
+		 
+		 if(vm.loggedIn){
+			 $http.defaults.headers.common['x-access-token'] 
+			 = authServiceFactory.getToken();
+		 }
+		 
+		 authServiceFactory.getUser().then(function(data) {
+		 vm.username = data.data.username;
+		 
 		 								},function(reason){
-		 console.log(reason);
+		 
 		 });
 		 });
 		
-		 // function to handle login form
+		 
 		 vm.doLogin = function() {
 		
-		 // call the Auth.login() function
+		 
 			 authServiceFactory.login(vm.loginData.username, vm.loginData.password)
 		 .success(function(data) {
 		
-		 // if a user successfully logs in, redirect to users page
+		 
 		 $location.path('/users');
 		 });
 		 };
 		
-		 // function to handle logging out
+		 
 		 vm.doLogout = function() {
 			 authServiceFactory.logout();
-		 // reset all user info
+		 
 		 vm.user = {};
 		 $location.path('/login');
 		 };

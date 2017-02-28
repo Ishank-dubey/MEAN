@@ -9,7 +9,7 @@ function authServiceFactory($http, $q, $window, $location){
 		
 		authService.getToken = function(){
 			
-			$window.localStorage.getItem('token');
+			return $window.localStorage.getItem('token');
 		};
 
 		authService.setToken = function(aToken){
@@ -32,6 +32,7 @@ function authServiceFactory($http, $q, $window, $location){
 	};
 
 	authService.isLoggedIn = function(){
+		console.log(authService.getToken());
 		if(authService.getToken())
 			return true;
 		else 

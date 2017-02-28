@@ -70,8 +70,6 @@ adminRouter.get('/posts', function(request, response){
 
 
 
-
-
 loginRouter.get('/',function(req,res){
 	res.send('This is login form');
 });

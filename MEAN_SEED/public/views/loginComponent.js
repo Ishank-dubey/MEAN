@@ -12,7 +12,7 @@
 			
 				 authServiceFactory.login(vm.loginData.username, vm.loginData.password)
 			 .then(function(data) {
-			 console.log(data);
+				 authServiceFactory.setToken(data.data.token);
 			 $location.path('/users');
 			 },function(reason){
 				 console.log(reason);
