@@ -17,8 +17,15 @@
 </div>
 
  <!-- LOGIN BUTTON -->
+ <div class="alert alert-danger" ng-if="aCtrl.error">
+{{ aCtrl.error }}
+</div>
  <button type="submit" class="btn btn-block btn-primary">
- <span>Login</span>
+
+  <span ng-if="!aCtrl.processing">Login</span>
+
+ <span ng-if="aCtrl.processing" ><span class="spinner glyphicon glyphicon-repeat"></span></span>
+ 
  </button>
 
  </form>

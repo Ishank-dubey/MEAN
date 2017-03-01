@@ -10,6 +10,8 @@
 			template : '<home></home>'
 		}).when('/login',{
 			template : '<login></login>'
+		}).when('/usersview',{
+			template : '<usersview></usersview>'
 		}).otherwise({
 			redirectTo : '/home'
 		});

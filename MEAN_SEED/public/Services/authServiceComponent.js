@@ -41,7 +41,7 @@ function authServiceFactory($http, $q, $window, $location){
 
 	authService.getUser = function(){
 		if(authService.isLoggedIn()){
-			return $http.get('/api/me');
+			return $http.get('/api/me', { cache: true });
 		}else{
 			return $q.reject({message: 'User has no token'});
 		}

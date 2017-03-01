@@ -8,16 +8,21 @@
 	controllerFunction.$inject = ['$scope', 'authServiceFactory','$location'];
 	function controllerFunction($scope, authServiceFactory, $location){
 		var vm = this;
+		vm.processing = false;
+		vm.error = ''; 
 		vm.doLogin = function() {
-			
+			vm.error = ''; 
+			vm.processing = true;	
 				 authServiceFactory.login(vm.loginData.username, vm.loginData.password)
 			 .then(function(data) {
 				 authServiceFactory.setToken(data.data.token);
-			 $location.path('/users');
+				 vm.processing = false;
+			 $location.path('/usersview');
 			 },function(reason){
-				 console.log(reason);
+				vm.processing = false;
+				vm.error = "Error";
 			 }).catch(function(event){
-				 console.log(event);
+				vm.processing = false;
 			 });
 			 };
 			

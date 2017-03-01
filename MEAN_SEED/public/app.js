@@ -1,6 +1,6 @@
 (function(){
 	'use strict'
-	var app = angular.module('MEAN',['ngRoute', 'home', 'login','authServiceModule','serviceModule']);
+	var app = angular.module('MEAN',['ngRoute', 'home', 'login','usersview', 'authServiceModule','serviceModule']);
 	
 	
 	app.controller('mainCtrl',mainFunction);
@@ -17,6 +17,8 @@
 		 if(vm.loggedIn){
 			 $http.defaults.headers.common['x-access-token'] 
 			 = authServiceFactory.getToken();
+		 }else{
+			 $location.path('/login');
 		 }
 		 
 		 authServiceFactory.getUser().then(function(data) {
@@ -28,37 +30,14 @@
 		 });
 		
 		 
-		 vm.doLogin = function() {
-		
 		 
-			 authServiceFactory.login(vm.loginData.username, vm.loginData.password)
-		 .success(function(data) {
-		
-		 
-		 $location.path('/users');
-		 });
-		 };
-		
 		 
 		 vm.doLogout = function() {
-			 authServiceFactory.logout();
-		 
+		 authServiceFactory.logout();
 		 vm.user = {};
 		 $location.path('/login');
 		 };
 		
 		
-		
-		self.tableDataArray = [{name:'q',username:'w',password:'a'}];
-		self.message = 'Message';
-		self.tableData = {};
-		self.tableFunction = function(){
-			self.tableDataArray.push(self.tableData);
-			self.tableData = {};
-		}
-		
-		serviceComponent.all().then(function(data){ 
-			console.log(data);
-		});
 	}; 
 })();

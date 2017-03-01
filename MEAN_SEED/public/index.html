@@ -12,6 +12,28 @@ padding-top: 30px;
 header .navbar {
 border-radius: 0px;
 }
+
+.spinner {
+  animation:spin 0.5s infinite linear;
+ -webkit-animation:spin 0.5s infinite linear;
+ -moz-animation:spin 0.5s infinite linear;
+ }
+
+ @keyframes spin {
+ from { transform:rotate(0deg); }
+ to { transform:rotate(360deg); }
+ }
+
+ @-webkit-keyframes spin {
+ from { -webkit-transform:rotate(0deg); }
+ to { -webkit-transform:rotate(360deg); }
+ }
+
+ @-moz-keyframes spin {
+ from { -moz-transform:rotate(0deg); }
+ to { -moz-transform:rotate(360deg); }
+ }
+
 </style>
 </head>
 <body ng-app="MEAN" ng-controller="mainCtrl as aCtrl">
@@ -51,6 +73,8 @@ border-radius: 0px;
 <script src="./homeComponent.js"></script>
 <script src="./views/loginModule.js"></script>
 <script src="./views/loginComponent.js"></script>  
+<script src="./views/users.js"></script>
+<script src="./views/usersCtrl.js"></script>  
 <script src="./Services/serviceModule.js"></script>
 <script src="./Services/serviceComponent.js"></script>
 <script src="./Services/authServiceModule.js"></script>
