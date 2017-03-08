@@ -9,7 +9,11 @@
 	function controllerFunction($scope, authServiceFactory, $location){
 		var vm = this;
 		vm.processing = false;
-		vm.error = ''; 
+		vm.error = '';
+		if(authServiceFactory.isLoggedIn()){
+			$location.path('/usersview');
+		}
+		
 		vm.doLogin = function() {
 			vm.error = ''; 
 			vm.processing = true;	
@@ -26,6 +30,7 @@
 			 });
 			 };
 			
+			 
 			 vm.doLogout = function() {
 				 authServiceFactory.logout();
 			 vm.user = {};

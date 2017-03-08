@@ -11,7 +11,9 @@
 		}).when('/login',{
 			template : '<login></login>'
 		}).when('/usersview',{
-			template : '<usersview></usersview>'
+			template : '<usersview1></usersview1>'
+		}).when('/usersview/create',{
+			template : '<userscreate></userscreate>'
 		}).otherwise({
 			redirectTo : '/home'
 		});
