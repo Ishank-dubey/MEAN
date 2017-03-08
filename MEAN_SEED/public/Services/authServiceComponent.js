@@ -6,7 +6,7 @@ function authServiceFactory($http, $q, $window, $location){
 
 		var authService = {};
 		
-		
+		authService.username = '';
 		authService.getToken = function(){
 			
 			return $window.localStorage.getItem('token');

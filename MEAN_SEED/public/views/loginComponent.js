@@ -19,6 +19,7 @@
 			vm.processing = true;	
 				 authServiceFactory.login(vm.loginData.username, vm.loginData.password)
 			 .then(function(data) {
+				 authServiceFactory.username = vm.loginData.username;
 				 authServiceFactory.setToken(data.data.token);
 				 vm.processing = false;
 			 $location.path('/usersview');

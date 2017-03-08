@@ -17,16 +17,15 @@
 		 if(vm.loggedIn){
 			 $http.defaults.headers.common['x-access-token'] 
 			 = authServiceFactory.getToken();
+			 
+			 vm.username = authServiceFactory.username;
+				 
+			 
 		 }else{
 			 $location.path('/login');
 		 }
 		 
-		 authServiceFactory.getUser().then(function(data) {
-		 vm.username = data.data.username;
 		 
-		 								},function(reason){
-		 
-		 });
 		 });
 		
 		 
