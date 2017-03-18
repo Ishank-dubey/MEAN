@@ -21,6 +21,10 @@
 	    	return $http.delete('/api/users/'+id);
 	    };
 	    
+	    serviceFac.get = function(id){
+	    	return $http.get('/api/users/'+id);
+	    };
+	    
 	    serviceFac.all = function(){
 		return $http.get('/admin/users');
 		};

@@ -14,8 +14,10 @@
 			template : '<usersview1></usersview1>'
 		}).when('/usersview/create',{
 			template : '<userscreate></userscreate>'
+		}).when('/users/:person_id',{
+			template : '<useredit></useredit>'
 		}).otherwise({
-			redirectTo : '/home'
+			template : '<login></login>'
 		});
 		
 		$locationProvider.html5Mode(true);
